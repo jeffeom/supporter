@@ -1,0 +1,28 @@
+
+<h1>Support Requests</h1>
+
+<table class="table">
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Department</th>
+    <th>Message</th>
+    <th>Actions</th>
+  </tr>
+
+<% @requests.each do |request| %>
+  <tr>
+    <td><%=h request.name %></td>
+    <!-- <td><%#=h request.email %></td> -->
+    <td><%=h link_to request.email, request_path(request)  %></td>
+    <td><%=h request.department %></td>
+    <td><%=h request.message %></td>
+    <td>
+      <%= link_to "Edit", edit_request_path(request), class: "btn btn-warning" %>
+      <%= link_to "Delete", request_path(request), method: :delete,
+                                                   class: "btn btn-danger btn-sm",
+                                                   data: {confirm: "Are you sure?"}%>
+    </td>
+    <% end %>
+  </tr>
+</table>

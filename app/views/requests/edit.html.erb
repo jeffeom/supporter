@@ -1,0 +1,30 @@
+<h1>Edit Post</h1>
+
+<%= form_for @request do |f| %>
+  <div>
+    <%= f.label :name%>
+    <%=":" %>
+    <%= f.text_field :name %>
+  </div>
+  <div>
+    <%= f.label :email %>
+    <%=":" %>
+    <%= f.email_field :email  %>
+  </div>
+  <div>
+    <%= f.label :department %>
+    <%=":" %>
+    <%= f.radio_button :department, "Sales", :value => "Sales" %>
+    <%= label :department_sales, "Sales" %>
+    <%= f.radio_button :department, "Marketing", :value => "Marketing"%>
+    <%= label :department_marketing, "Marketing" %>
+    <%= f.radio_button :department, "Technical", :value => "Technical" %>
+    <%= label :department_technical, "Technical" %>
+  </div>
+  <div>
+    <%= f.label :message %>
+    <%= ":" %>
+    <%= f.text_area :message %>
+  </div>
+  <%= f.submit "Save"%>
+<% end %>

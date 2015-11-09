@@ -1,0 +1,38 @@
+<%= "Supporter" %>
+<hr>
+<% if @request.errors.any? %>
+  <ul>
+    <% @request.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_for @request do |f| %>
+  <div>
+    <%= f.label :name%>
+    <%=":" %>
+    <%= f.text_field :name,  class: "form-control"  %>
+  </div>
+  <div>
+    <%= f.label :email %>
+    <%=":" %>
+    <%= f.email_field :email,  class: "form-control"   %>
+  </div>
+  <div>
+    <%= f.label :department %>
+    <%=":" %>
+    <%= f.radio_button :department, "Sales", :value => "Sales" %>
+    <%= label :department_sales, "Sales" %>
+    <%= f.radio_button :department, "Marketing", :value => "Marketing"%>
+    <%= label :department_marketing, "Marketing" %>
+    <%= f.radio_button :department, "Technical", :value => "Technical" %>
+    <%= label :department_technical, "Technical" %>
+  </div>
+  <div>
+    <%= f.label :message %>
+    <%= ":" %>
+    <%= f.text_area :message,  class: "form-control"  %>
+  </div>
+  <%= f.submit class: "btn btn-primary"%>
+<% end %>
